@@ -1,0 +1,6 @@
+LinkSentinel Final Test Confusion Matrix
+=========================================
+True Negatives (Safe-Looking -> Safe-Looking): 60
+False Positives (Safe-Looking -> Suspicious): 0
+False Negatives (Suspicious -> Safe-Looking): 0
+True Positives (Suspicious -> Suspicious):    60

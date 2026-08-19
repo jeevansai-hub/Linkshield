@@ -1,0 +1,10 @@
+{
+  "target_limit_ms": 50.0,
+  "repetitions": 1000,
+  "min_ms": 4.498,
+  "max_ms": 50.869,
+  "mean_ms": 7.236,
+  "median_ms": 6.681,
+  "std_ms": 2.496,
+  "target_met": true
+}

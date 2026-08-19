@@ -1,0 +1,179 @@
+{
+  "sample_counts": {
+    "train": 960,
+    "val": 120,
+    "test": 120
+  },
+  "class_distribution": {
+    "train": {
+      "0": 480,
+      "1": 480
+    },
+    "val": {
+      "1": 60,
+      "0": 60
+    },
+    "test": {
+      "1": 60,
+      "0": 60
+    }
+  },
+  "overlap_check": {
+    "train_val_overlap": 86,
+    "train_test_overlap": 85,
+    "val_test_overlap": 32,
+    "total_unique_urls": 301,
+    "total_raw_rows": 1200
+  },
+  "feature_correlations_with_target": {
+    "url_length": 0.8951,
+    "domain_length": 0.7766,
+    "path_length": 0.4937,
+    "query_length": 0.4873,
+    "num_dots": 0.6175,
+    "num_hyphens": 0.806,
+    "num_underscores": 0.3048,
+    "num_slashes": 0.0854,
+    "num_question_marks": 0.5736,
+    "num_equal_signs": 0.5736,
+    "num_at_symbols": NaN,
+    "num_digits": 0.4526,
+    "digit_ratio": 0.3231,
+    "num_special_chars": 0.9079,
+    "num_subdomains": 0.8261,
+    "path_depth": 0.0854,
+    "has_ip": 0.2192,
+    "has_https": -0.4838,
+    "has_shortener_domain": 0.2274,
+    "has_at_symbol": NaN,
+    "has_query": 0.5736,
+    "has_fragment": NaN,
+    "suspicious_keyword_count": 0.8695
+  },
+  "top_correlated_features": [
+    [
+      "num_at_symbols",
+      NaN
+    ],
+    [
+      "num_special_chars",
+      0.9079
+    ],
+    [
+      "url_length",
+      0.8951
+    ],
+    [
+      "num_subdomains",
+      0.8261
+    ],
+    [
+      "num_hyphens",
+      0.806
+    ]
+  ],
+  "feature_means_by_class": {
+    "url_length": {
+      "safe_mean": 31.7767,
+      "suspicious_mean": 67.475
+    },
+    "domain_length": {
+      "safe_mean": 11.5767,
+      "suspicious_mean": 33.1533
+    },
+    "path_length": {
+      "safe_mean": 10.185,
+      "suspicious_mean": 17.3567
+    },
+    "query_length": {
+      "safe_mean": 2.01,
+      "suspicious_mean": 8.8567
+    },
+    "num_dots": {
+      "safe_mean": 1.3233,
+      "suspicious_mean": 2.515
+    },
+    "num_hyphens": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 2.635
+    },
+    "num_underscores": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.17
+    },
+    "num_slashes": {
+      "safe_mean": 3.475,
+      "suspicious_mean": 3.6133
+    },
+    "num_question_marks": {
+      "safe_mean": 0.1117,
+      "suspicious_mean": 0.6717
+    },
+    "num_equal_signs": {
+      "safe_mean": 0.1117,
+      "suspicious_mean": 0.6717
+    },
+    "num_at_symbols": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.0
+    },
+    "num_digits": {
+      "safe_mean": 0.6083,
+      "suspicious_mean": 3.615
+    },
+    "digit_ratio": {
+      "safe_mean": 0.0185,
+      "suspicious_mean": 0.0576
+    },
+    "num_special_chars": {
+      "safe_mean": 6.1333,
+      "suspicious_mean": 11.2767
+    },
+    "num_subdomains": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 1.0833
+    },
+    "path_depth": {
+      "safe_mean": 1.475,
+      "suspicious_mean": 1.6133
+    },
+    "has_ip": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.0917
+    },
+    "has_https": {
+      "safe_mean": 0.8933,
+      "suspicious_mean": 0.4367
+    },
+    "has_shortener_domain": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.0983
+    },
+    "has_at_symbol": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.0
+    },
+    "has_query": {
+      "safe_mean": 0.1117,
+      "suspicious_mean": 0.6717
+    },
+    "has_fragment": {
+      "safe_mean": 0.0,
+      "suspicious_mean": 0.0
+    },
+    "suspicious_keyword_count": {
+      "safe_mean": 0.2733,
+      "suspicious_mean": 3.43
+    }
+  },
+  "feature_extraction_independence": {
+    "extractor_takes_label_param": false,
+    "extracted_feature_keys_count": 23
+  },
+  "probability_distribution_test": {
+    "min_prob_safe_class": 0.0,
+    "max_prob_safe_class": 0.0,
+    "min_prob_suspicious_class": 1.0,
+    "max_prob_suspicious_class": 1.0
+  }
+}
