@@ -16,7 +16,7 @@ Phishing attacks, drive-by malware downloads, and malicious link distribution re
 
 LinkSentinel avoids live network requests (preventing drive-by execution and network overhead) by relying strictly on static parsing of URL structures.
 
-```
+```text
                     ┌─────────────────────────┐
                     │    Input Raw URL        │
                     └────────────┬────────────┘
@@ -29,14 +29,14 @@ LinkSentinel avoids live network requests (preventing drive-by execution and net
                                  │ Lexical, Host, Path, Query Features
                                  ▼
                     ┌─────────────────────────┐
-                    │ Preprocessing Transformer│
+                    │ Preprocessing Pipeline  │
                     │  (StandardScaler/Dict)  │
                     └────────────┬────────────┘
                                  │ Numeric Feature Vector
                                  ▼
                     ┌─────────────────────────┐
                     │ Trained ML Classifier   │
-                    │ (Logistic / XGB / Light)│
+                    │ (Logistic / Random For) │
                     └────────────┬────────────┘
                                  │ Risk Score (0.0 to 1.0)
                                  ▼
@@ -61,53 +61,57 @@ In threat classification, relying solely on **Accuracy** is dangerously misleadi
 
 ---
 
-## 🚀 Quickstart & Usage
+## 🚀 Quickstart & Execution Guide (After Cloning)
 
-### 1. Environment Setup
+Follow these step-by-step instructions to run the entire project on your local machine:
+
+### Step 1: Clone Repository & Open Folder
 ```bash
-# Clone repository
-git clone https://github.com/user/LinkShield.git
-cd LinkShield
+git clone https://github.com/jeevansai-hub/Linkshield.git
+cd Linkshield
+```
 
+### Step 2: Set Up Virtual Environment & Install Dependencies
+```bash
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# Activate virtual environment
+# On Windows (PowerShell):
+venv\Scripts\activate
+# On Linux / macOS:
+source venv/bin/activate
+
+# Upgrade pip & install dependencies
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 2. Run Tests
+### Step 3: Run Automated Unit Tests
 ```bash
-pytest tests/
+python -m unittest discover -s tests -p "test_*.py"
+```
+**Expected Output**:
+```text
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.019s
+
+OK
 ```
 
-### 3. Static Feature Extraction Example
-```python
-from src.features.extract_features import URLLexicalFeatureExtractor
-
-extractor = URLLexicalFeatureExtractor()
-features = extractor.extract("http://login.paypal.account-update.com/verify?id=123")
-
-print(features)
-# Output: {'url_length': 52, 'num_dots': 3, 'has_ip': 0, 'num_hyphens': 1, 'is_https': 0, ...}
+### Step 4: Launch Real-Time Streamlit Web Application
+```bash
+python -m streamlit run app.py
 ```
+- Automatically opens at `http://localhost:8501`.
+- Enter any URL (e.g. `http://login.paypal.account-verify.com/update?id=123`) and click **RUN STATIC RISK ANALYSIS**.
+- View the classification badge (`SAFE-LOOKING` / `SUSPICIOUS`), probability %, processing latency (<10ms), and feature breakdown.
 
-### 4. Baseline Training & Evaluation
-```python
-from src.models.train_evaluate import ModelPipeline
-
-pipeline = ModelPipeline(model_type="logistic_regression")
-metrics, model = pipeline.fit_and_evaluate(X_train, y_train, X_test, y_test)
-print(metrics)
+### Step 5: Run Instant Prediction via Python CLI
+```bash
+python -c "import joblib, pandas as pd; from src.features.extract_features import URLLexicalFeatureExtractor; ext = URLLexicalFeatureExtractor(); models = joblib.load('models/linksentinel_models.joblib'); res = models['engine_rf'].predict_proba(pd.DataFrame([ext.extract('http://login.paypal.account-verify.com/update?id=123')])[models['feature_names']])[0]; print('Probability Suspicious:', round(float(res)*100, 2), '%'); print('Label:', 'SUSPICIOUS' if res >= 0.30 else 'SAFE-LOOKING')"
 ```
-
----
-
-## 🔒 Safety & Zero-Trust Constraints
-
-- **Static Analysis Only**: LinkSentinel never executes HTTP requests, DNS lookups, or page rendering during feature extraction. This guarantees that checking a malicious link does NOT trigger a drive-by download or alert an attacker.
-- **Terminology Standard**: Predictions are categorized as **`Safe-Looking`** or **`Suspicious`**. LinkSentinel never guarantees absolute safety.
 
 ---
 
@@ -122,11 +126,11 @@ LinkSentinel includes a complete project reference system designed for human dev
 - [`docs/EVALUATION_GUIDE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/EVALUATION_GUIDE.md) — Metric analysis, confusion matrices, and decision thresholds.
 - [`docs/SAFETY.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/SAFETY.md) — Security boundaries and zero-trust guidelines.
 - [`.agent/workflows/`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/.agent/workflows/) — Executable agent task workflows.
+- [`reports/activity4_final_report.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/reports/activity4_final_report.md) — Complete 17-section Activity 4 submission report.
 
 ---
 
-## 🛣️ Future Scope
+## 🔒 Safety & Zero-Trust Constraints
 
-- ONNX Runtime export for browser extension integration (<10ms inference).
-- Character-level CNN / Transformer static embeddings for obfuscated payload URLs.
-- Automated quarterly model retraining on updated PhishTank datasets.
+- **Static Analysis Only**: LinkSentinel never executes HTTP requests, DNS lookups, or page rendering during feature extraction. This guarantees that checking a malicious link does NOT trigger a drive-by download or alert an attacker.
+- **Terminology Standard**: Predictions are categorized as **`Safe-Looking`** or **`Suspicious`**. LinkSentinel never guarantees absolute safety.
