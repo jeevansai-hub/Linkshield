@@ -1,6 +1,6 @@
-# Safety & Threat Boundary Specification — LinkSentinel
+# Safety & Threat Boundary Specification — LinkShield
 
-> **Document Scope**: Security protocols, zero-trust static parsing rules, risk taxonomy, and operational safety constraints for LinkSentinel (`LinkShield`).
+> **Document Scope**: Security protocols, zero-trust static parsing rules, risk taxonomy, and operational safety constraints for LinkShield.
 
 ---
 
@@ -8,7 +8,7 @@
 
 > [!CAUTION]
 > **MANDATORY SECURITY CONSTRAINT**  
-> Under no circumstances shall LinkSentinel code or workflows issue live network connections to URLs being analyzed.
+> Under no circumstances shall LinkShield code or workflows issue live network connections to URLs being analyzed.
 
 ### Prohibited Operations
 - **NO HTTP GET / POST / HEAD requests**.
@@ -29,7 +29,7 @@ All feature extraction in `src/features/extract_features.py` MUST rely strictly 
 
 ## 2. Risk Taxonomy & Standardized Terminology
 
-LinkSentinel enforces probabilistic risk classification to manage user expectations and avoid liability claims:
+LinkShield enforces probabilistic risk classification to manage user expectations and avoid liability claims:
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -66,4 +66,4 @@ Attackers actively attempt to bypass static lexical classifiers using techniques
 2. **Hex / IP Encoding**: Converting hostnames to hex or decimal IP representations (`0x7f000001`).
 3. **Subdomain Nesting**: Concatenating legitimate brand names in subdomains (`paypal.com-verification.attacker.com`).
 
-LinkSentinel's feature extractor includes explicit checks for IP hosts, non-ASCII character ratios, and keyword nesting to mitigate these adversarial tactics.
+LinkShield's feature extractor includes explicit checks for IP hosts, non-ASCII character ratios, and keyword nesting to mitigate these adversarial tactics.

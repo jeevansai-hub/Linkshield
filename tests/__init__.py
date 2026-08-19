@@ -1,1 +1,1 @@
-"""Test package for LinkSentinel."""
+"""Test package for LinkShield."""

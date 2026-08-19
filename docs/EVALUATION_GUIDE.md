@@ -1,16 +1,16 @@
-# Evaluation Framework Guide — LinkSentinel
+# Evaluation Framework Guide — LinkShield
 
-> **Document Scope**: Evaluation metrics, confusion matrix interpretation, threshold selection, and error analysis methodology for LinkSentinel (`LinkShield`).
+> **Document Scope**: Evaluation metrics, confusion matrix interpretation, threshold selection, and error analysis methodology for LinkShield.
 
 ---
 
 ## 1. The 5 Mandatory Evaluation Metrics
 
-Every model evaluation in LinkSentinel MUST output and log the following five metrics:
+Every model evaluation in LinkShield MUST output and log the following five metrics:
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│               LinkSentinel 5-Metric Suite              │
+│                LinkShield 5-Metric Suite               │
 ├─────────────────┬──────────────────────────────────────┤
 │ 1. Accuracy     │ (TP + TN) / (TP + TN + FP + FN)      │
 │ 2. Precision    │ TP / (TP + FP)                       │
@@ -42,7 +42,7 @@ Every model evaluation in LinkSentinel MUST output and log the following five me
 
 ### ROC-AUC
 - **Definition**: Area under the Receiver Operating Characteristic curve (True Positive Rate vs False Positive Rate).
-- **Cybersecurity Role**: Evaluates the model's intrinsic discrimination power across all possible decision thresholds, independent of class distribution.
+- **Cybersecurity Role**: Evaluates the model's intrinsic discrimination power across all possible decision thresholds, independent of class balance.
 
 ---
 
@@ -62,5 +62,5 @@ Pred Suspicious (1)  False Positive (FP)   True Positive (TP)
 ## 4. Decision Threshold Tuning Strategy
 
 Default classification threshold is $t = 0.50$. In high-security environments:
-- Lowering threshold (e.g. $t = 0.35$) increases **Recall** (catches more threats) at the cost of slight precision reduction.
-- LinkSentinel provides configurable threshold tuning via `src/models/train_evaluate.py`.
+- Lowering threshold (e.g. $t = 0.30$) increases **Recall** (catches more threats) at the cost of slight precision reduction.
+- LinkShield provides configurable threshold tuning via `src/models/train_evaluate.py`.

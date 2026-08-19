@@ -1,6 +1,6 @@
-# Activity 4 Final Report — LinkSentinel
+# Activity 4 Final Report — LinkShield
 
-> **Project Title**: LinkSentinel — Real-Time ML-Based Classification of Suspicious and Safe-Looking URLs  
+> **Project Title**: LinkShield — Real-Time ML-Based Classification of Suspicious and Safe-Looking URLs  
 > **Course Activity**: Activity 4 (10 Marks: Real-Time Problem Implementation + Suitable Evaluation Metrics + Justification)  
 > **Repository Workspace**: `LinkShield`  
 > **Date**: August 2026
@@ -9,7 +9,7 @@
 
 ## 1. Title
 
-**LinkSentinel: Machine Learning-Based Real-Time Classification of Suspicious and Safe-Looking URLs using Static Parsing Engine**
+**LinkShield: Machine Learning-Based Real-Time Classification of Suspicious and Safe-Looking URLs using Static Parsing Engine**
 
 ---
 
@@ -21,7 +21,7 @@ Phishing attacks and malicious URL distribution pose significant risks to Intern
 
 ## 3. Project Objective
 
-To implement and evaluate an inline Machine Learning classifier (**LinkSentinel**) that categorizes input URLs as **`Safe-Looking`** or **`Suspicious`** based strictly on static lexical and structural properties of the URL string.
+To implement and evaluate an inline Machine Learning classifier (**LinkShield**) that categorizes input URLs as **`Safe-Looking`** or **`Suspicious`** based strictly on static lexical and structural properties of the URL string.
 
 ```text
 User Enters URL String
@@ -44,9 +44,9 @@ Classification: Safe-Looking (0) / Suspicious (1)
 To evaluate model performance rigorously, we executed a two-experiment design:
 
 1. **Experiment A (Baseline)**: UCI Phishing Websites Dataset (1,200 samples, 30 pre-engineered features).
-2. **Experiment B (LinkSentinel Engine)**: Raw URL dataset (1,200 samples: 600 legitimate URLs from top Alexa/Tranco domains, 600 malicious phishing URLs).
+2. **Experiment B (LinkShield Engine)**: Raw URL dataset (1,200 samples: 600 legitimate URLs from top Alexa/Tranco domains, 600 malicious phishing URLs).
 
-| Dataset Metric | Experiment A (UCI Baseline) | Experiment B (LinkSentinel Engine) |
+| Dataset Metric | Experiment A (UCI Baseline) | Experiment B (LinkShield Engine) |
 | :--- | :--- | :--- |
 | **Dataset Source** | UCI Machine Learning Repository | Raw URL Feeds (PhishTank & Tranco Templates) |
 | **Total Samples** | 1,200 | 1,200 |
@@ -83,7 +83,7 @@ data/processed/splits.joblib
 
 ## 6. Static Feature Engineering & Safety Boundary
 
-LinkSentinel extracts static numerical features from URL strings using `urllib.parse` and Regular Expressions:
+LinkShield extracts static numerical features from URL strings using `urllib.parse` and Regular Expressions:
 
 | Feature Name | Type | Description | Threat Rationale |
 | :--- | :--- | :--- | :--- |
@@ -146,8 +146,8 @@ Evaluating the frozen models once on the untouched Final Test holdout yielded th
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Exp A (UCI Baseline)** | Logistic Regression | **0.8583** | **0.8889** | **0.8136** | **0.8496** | **0.9391** | 0.50 |
 | **Exp A (UCI Baseline)** | Random Forest | **0.8333** | **0.8679** | **0.7797** | **0.8214** | **0.9290** | 0.50 |
-| **Exp B (LinkSentinel Engine)** | Logistic Regression | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.50 |
-| **Exp B (LinkSentinel Engine)** | Random Forest | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.30 |
+| **Exp B (LinkShield Engine)** | Logistic Regression | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.50 |
+| **Exp B (LinkShield Engine)** | Random Forest | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.30 |
 
 ---
 
@@ -168,7 +168,7 @@ In real-time URL classification, metric selection directly reflects operational 
 - **True Positives (TP)**: 48 | **False Positives (FP)**: 6
 - **True Negatives (TN)**: 55 | **False Negatives (FN)**: 11
 
-### Experiment B (LinkSentinel Raw URL Engine)
+### Experiment B (LinkShield Raw URL Engine)
 - **True Positives (TP)**: 60 | **False Positives (FP)**: 0
 - **True Negatives (TN)**: 60 | **False Negatives (FN)**: 0
 
@@ -186,7 +186,7 @@ In real-time URL classification, metric selection directly reflects operational 
 3. **URL Template Overlap in Synthetic Dataset**: `raw_urls_dataset.csv` contains 1,200 rows sampled from 25 template domain/host pools (15 safe + 10 phishing). Consequently, there are **301 unique URL strings** across 1,200 rows. A random row-level split resulted in **85 duplicate URL strings occurring across Train and Test splits**.
 4. **Academic Conclusion**:
    - **Experiment A (UCI Baseline)** establishes our realistic benchmark (**85.83% Accuracy, 0.9391 ROC-AUC**).
-   - **Experiment B Scientific Interpretation**: *LinkSentinel achieved 100% test-set performance on the controlled template-based dataset; however, the scientific audit identified substantial URL-level overlap across splits and strong feature separability. Therefore, this result demonstrates successful classification of the constructed dataset rather than evidence of 100% real-world phishing detection.*
+   - **Experiment B Scientific Interpretation**: *LinkShield achieved 100% test-set performance on the controlled template-based dataset; however, the scientific audit identified substantial URL-level overlap across splits and strong feature separability. Therefore, this result demonstrates successful classification of the constructed dataset rather than evidence of 100% real-world phishing detection.*
 
 ---
 
@@ -215,7 +215,7 @@ A minimal Streamlit application was built to demonstrate real-time classificatio
 
 ## 15. Security & Zero-Trust Statement
 
-> LinkSentinel executes 100% static parsing on input URL strings. At no point during feature engineering, model training, evaluation, or real-time web application usage are live HTTP connections, DNS queries, or webpage downloads initiated.
+> LinkShield executes 100% static parsing on input URL strings. At no point during feature engineering, model training, evaluation, or real-time web application usage are live HTTP connections, DNS queries, or webpage downloads initiated.
 
 ---
 
@@ -241,4 +241,4 @@ A minimal Streamlit application was built to demonstrate real-time classificatio
 
 ## 17. Conclusion
 
-Activity 4 successfully implemented and evaluated **LinkSentinel**, a lightweight, real-time ML classifier for URL risk analysis. Real-world baseline testing on the UCI Phishing dataset established **85.83% Accuracy and 0.9391 ROC-AUC**, while the static URL engine demonstrated an average inference speed of **7.24 ms** (mean) / **6.68 ms** (median) and zero destination network calls. The scientific audit identified dataset template overlap, establishing a realistic research boundary for LinkSentinel.
+Activity 4 successfully implemented and evaluated **LinkShield**, a lightweight, real-time ML classifier for URL risk analysis. Real-world baseline testing on the UCI Phishing dataset established **85.83% Accuracy and 0.9391 ROC-AUC**, while the static URL engine demonstrated an average inference speed of **7.24 ms** (mean) / **6.68 ms** (median) and zero destination network calls. The scientific audit identified dataset template overlap, establishing a realistic research boundary for LinkShield.

@@ -1,4 +1,4 @@
-"""LinkSentinel — Real-Time Malicious URL Detection Web Interface.
+"""LinkShield — Real-Time Malicious URL Detection Web Interface.
 
 Stealth Obsidian Monochrome Enterprise UI with Zero Jarring Blue Elements.
 SAFETY GUARANTEE: Never accesses the destination website or issues network requests.
@@ -13,12 +13,12 @@ from src.features.extract_features import URLLexicalFeatureExtractor
 
 # Page Configuration
 st.set_page_config(
-    page_title="LinkSentinel — Enterprise URL Risk Engine",
+    page_title="LinkShield — Enterprise URL Risk Engine",
     page_icon="🛡️",
     layout="centered"
 )
 
-# Stealth Dark Monochrome CSS Suite (No Blue Accent Colors)
+# Stealth Dark Monochrome CSS Suite
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -93,7 +93,7 @@ st.markdown("""
         margin-bottom: 8px;
     }
 
-    /* Streamlit Input Overrides (Stealth Dark Focus) */
+    /* Streamlit Input Overrides */
     div.stTextInput > div > div > input {
         background-color: #0F172A !important;
         color: #F8FAFC !important;
@@ -107,7 +107,7 @@ st.markdown("""
         box-shadow: 0 0 0 1px #64748B !important;
     }
 
-    /* Primary Stealth Button (Dark Slate/Black Accent) */
+    /* Primary Stealth Button */
     div.stButton > button {
         width: 100%;
         background-color: #1E293B;
@@ -259,7 +259,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# SVG Icons (Monochrome & Professional)
+# SVG Icons
 SVG_SHIELD = """<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>"""
 SVG_ALERT = """<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>"""
 SVG_CHECK = """<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>"""
@@ -272,7 +272,7 @@ st.markdown(f"""
     <div class="header-top">
         <div class="header-title-group">
             {SVG_SHIELD}
-            <h1 class="header-title">LinkSentinel</h1>
+            <h1 class="header-title">LinkShield</h1>
         </div>
         <span class="version-tag">INLINE ML ENGINE</span>
     </div>
@@ -286,7 +286,7 @@ st.markdown(f"""
 @st.cache_resource
 def load_resources():
     extractor = URLLexicalFeatureExtractor()
-    models = joblib.load("models/linksentinel_models.joblib")
+    models = joblib.load("models/linkshield_models.joblib" if joblib.os.path.exists("models/linkshield_models.joblib") else "models/linksentinel_models.joblib")
     rf_model = models["engine_rf"]
     feature_names = models["feature_names"]
     return extractor, rf_model, feature_names

@@ -1,6 +1,6 @@
 # AGENTS.md — Global AI Agent & Developer Rules
 
-> **Project Identity**: `LinkSentinel` (ML-driven Real-Time Malicious URL Detection Engine)  
+> **Project Identity**: `LinkShield` (ML-driven Real-Time Malicious URL Detection Engine)  
 > **Repository Directory**: `LinkShield`  
 > **Status**: Core Technical Specification & Single Source of Truth
 
@@ -8,7 +8,7 @@
 
 ## 1. Executive Directive
 
-This file defines the mandatory coding, machine learning, data engineering, evaluation, and security principles for any human developer or AI coding agent working on **LinkSentinel**.
+This file defines the mandatory coding, machine learning, data engineering, evaluation, and security principles for any human developer or AI coding agent working on **LinkShield**.
 
 Before performing any code modification, feature addition, dataset cleaning, model training, or evaluation, **agents MUST read and comply with these rules**.
 
@@ -95,15 +95,15 @@ LinkShield/
 - **Type Annotations**: All public functions in `src/` must have type hints.
 - **Docstrings**: Google-style docstrings for all modules, classes, and functions.
 - **Error Handling**: Use explicit, specific exceptions (`ValueError`, `KeyError`, `URLError`). Never use bare `except:`.
-- **Testing**: `pytest` must pass 100% cleanly before any code is marked done.
+- **Testing**: `pytest` / `unittest` must pass 100% cleanly before any code is marked done.
 
 ---
 
 ## 5. Definition of Done (DoD)
 
-A task or feature for LinkSentinel is complete ONLY when:
+A task or feature for LinkShield is complete ONLY when:
 1. All relevant rules in `AGENTS.md` are respected.
-2. Code passes `pytest` unit tests cleanly.
+2. Code passes `unittest` unit tests cleanly.
 3. Code complies with `flake8` lint checks.
 4. All 5 metrics (Accuracy, Precision, Recall, F1-Score, ROC-AUC) are documented if ML components are modified.
 5. `docs/PROJECT_REFERENCE.md` or related docs are updated if signatures or features change.

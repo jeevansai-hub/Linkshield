@@ -1,12 +1,12 @@
-# Data Engineering Guide — LinkSentinel
+# Data Engineering Guide — LinkShield
 
-> **Document Scope**: Sourcing, storage, validation, splitting, transformation, and governance of URL datasets for LinkSentinel (`LinkShield`).
+> **Document Scope**: Sourcing, storage, validation, splitting, transformation, and governance of URL datasets for LinkShield.
 
 ---
 
 ## 1. Data Taxonomy & Categories
 
-LinkSentinel categorizes datasets into four strict operational tiers:
+LinkShield categorizes datasets into four strict operational tiers:
 
 ```
 ┌────────────────────────────────────────────────────────┐

@@ -1,9 +1,10 @@
-"""Static URL Feature Extraction Engine for LinkSentinel.
+"""Static URL Feature Extraction Engine for LinkShield.
 
 IMPORTANT SAFETY MANDATE:
 This module operates strictly via static string parsing and Regular Expressions.
 It NEVER issues network requests, DNS lookups, or webpage downloads.
 """
+
 
 import re
 from urllib.parse import urlparse

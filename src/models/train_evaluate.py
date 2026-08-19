@@ -1,9 +1,10 @@
-"""Model Training and Pipeline Infrastructure for LinkSentinel.
+"""Model Training and Pipeline Infrastructure for LinkShield.
 
 Logistic Regression utilizes StandardScaler inside a Pipeline.
 Random Forest operates directly on raw unscaled features.
 Enforces seed 42 for 100% reproducibility.
 """
+
 
 from typing import Tuple, Dict, Any, Optional
 import numpy as np
