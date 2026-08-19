@@ -125,7 +125,8 @@ LinkSentinel includes a complete project reference system designed for human dev
 - [`docs/ML_GUIDE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/ML_GUIDE.md) — Feature engineering, training, and model persistence.
 - [`docs/EVALUATION_GUIDE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/EVALUATION_GUIDE.md) — Metric analysis, confusion matrices, and decision thresholds.
 - [`docs/SAFETY.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/SAFETY.md) — Security boundaries and zero-trust guidelines.
-- [`.agent/workflows/`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/.agent/workflows/) — Executable agent task workflows.
+- [`project/workflows/`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/project/workflows/) — Executable agent task workflows.
+
 - [`reports/activity4_final_report.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/reports/activity4_final_report.md) — Complete 17-section Activity 4 submission report.
 
 ---

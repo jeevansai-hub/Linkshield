@@ -55,7 +55,7 @@ LinkShield/
 │   ├── ML_GUIDE.md         # Pipeline, feature engineering & model persistence
 │   ├── EVALUATION_GUIDE.md # 5-metric evaluation, threshold tuning & error analysis
 │   └── SAFETY.md           # Zero-trust safety, static parsing & threat boundaries
-├── .agent/
+├── project/
 │   └── workflows/          # Step-by-step executable workflows for agents
 │       ├── data-validation.md
 │       ├── feature-engineering.md
@@ -63,6 +63,7 @@ LinkShield/
 │       ├── model-evaluation.md
 │       ├── real-world-testing.md
 │       └── release-check.md
+
 ├── src/                    # Production Python code
 │   ├── __init__.py
 │   ├── features/           # Static URL feature extractors

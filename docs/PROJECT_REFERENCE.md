@@ -50,7 +50,8 @@ LinkShield is designed as a decoupled, modular Machine Learning system for real-
 | `README.md` | Human overview, setup instructions, high-level summary. | Read-only except for major releases. |
 | `AGENTS.md` | 20 mandatory AI & developer rules and quality constraints. | Read first before any modification. |
 | `docs/` | Technical source of truth (Architecture, Data, ML, Eval, Safety). | Updated whenever design evolves. |
-| `.agent/workflows/` | Declarative, step-by-step task scripts for AI agents. | Executed by AI subagents. |
+| `project/workflows/` | Declarative, step-by-step task scripts for AI agents. | Executed by AI subagents. |
+
 | `.github/workflows/` | GitHub Actions CI automation configuration. | CI build trigger on push/PR. |
 | `src/features/` | Static feature extraction engine from raw URL strings. | Pure deterministic functions. |
 | `src/models/` | Model training, tuning, serialization, and inference wrapper. | Consumes extracted features. |
