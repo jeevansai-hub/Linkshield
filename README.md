@@ -119,7 +119,9 @@ python -c "import joblib, pandas as pd; from src.features.extract_features impor
 
 LinkSentinel includes a complete project reference system designed for human developers and AI coding agents:
 
+- [`docs/MASTER_PROJECT_DOCUMENTATION.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/MASTER_PROJECT_DOCUMENTATION.md) — **Exhaustive Master Technical Documentation**.
 - [`AGENTS.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/AGENTS.md) — 20 global developer/AI constraints.
+
 - [`docs/PROJECT_REFERENCE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/PROJECT_REFERENCE.md) — Technical architecture & feature definitions.
 - [`docs/DATA_GUIDE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/DATA_GUIDE.md) — Data engineering, storage, and validation standards.
 - [`docs/ML_GUIDE.md`](file:///c:/Users/jeeva/OneDrive/jeevan_workspace/ml%20projects/LinkShield/docs/ML_GUIDE.md) — Feature engineering, training, and model persistence.
